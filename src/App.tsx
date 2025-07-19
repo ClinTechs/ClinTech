@@ -17,9 +17,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           {/* Página inicial do site principal */}
-          <Route path="/" element={<Index />} />
+          <Route path="/ClinTech" element={<Index />} />
           {/* Redirecionar para o site do portfólio diretamente */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="/ClinTech" element={<NotFound />} />
           <Route path="/portfolio" element={<Portfolio />} />
         </Routes>
       </BrowserRouter>

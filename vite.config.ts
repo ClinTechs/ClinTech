@@ -26,5 +26,5 @@ export default defineConfig(({ mode }) => ({
     },
   },
   // Adicione o base para o deploy no GitHub Pages
-  base: '/ClinTech/', // Substitua "ClinTech" pelo nome do seu repositório no GitHub
+  base: "/ClinTech/", // Substitua "ClinTech" pelo nome do seu repositório no GitHub
 }));
