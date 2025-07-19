@@ -25,6 +25,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Adicione o base para o deploy no GitHub Pages
-  base: "/ClinTech/", // Substitua "ClinTech" pelo nome do seu repositório no GitHub
+  base: '/', // Corrigido: a chave "base" agora está corretamente definida aqui.
 }));

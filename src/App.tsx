@@ -17,10 +17,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           {/* Página inicial do site principal */}
-          <Route path="/ClinTech" element={<Index />} />
-          {/* Redirecionar para o site do portfólio diretamente */}
-          <Route path="/ClinTech" element={<NotFound />} />
+          <Route path="/" element={<Index />} />
+          {/* Página de erro 404 */}
           <Route path="/portfolio" element={<Portfolio />} />
+          {/* Página para qualquer rota desconhecida */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
