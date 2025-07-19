@@ -1,7 +1,11 @@
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Users, Award, Lightbulb } from "lucide-react";
 
-const AboutSection = () => {
+interface AboutSectionProps {
+  id?: string;
+}
+
+const AboutSection = ({ id = "sobre" }: AboutSectionProps) => {
   const achievements = [
     "Mais de 500 projetos concluídos",
     "15 anos de experiência no mercado",
@@ -10,10 +14,10 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="sobre" className="py-20 bg-card/30">
+    <section id={id} className="py-20 bg-card/30">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
+          {/* Conteúdo texto */}
           <div className="space-y-8">
             <div className="space-y-4">
               <Badge variant="secondary" className="w-fit">
@@ -33,7 +37,7 @@ const AboutSection = () => {
               </p>
             </div>
 
-            {/* Achievements */}
+            {/* Conquistas */}
             <div className="space-y-4">
               {achievements.map((achievement, index) => (
                 <div key={index} className="flex items-center space-x-3">
@@ -44,7 +48,7 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Stats Cards */}
+          {/* Cards de estatísticas */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="bg-card p-6 rounded-xl border border-border hover:shadow-card transition-all duration-300">
               <div className="flex items-center space-x-4">

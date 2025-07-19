@@ -10,13 +10,13 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <PatientSolutionsSection />
-      <SubscriptionSection />
-      <ContactSection />
+      <Header /> {/* Header só aparece aqui, na página principal */}
+      <HeroSection id="inicio" />
+      <AboutSection id="sobre" />
+      <ServicesSection id="servicos" />
+      <PatientSolutionsSection id="pacientes" />
+      <SubscriptionSection id="assinatura" />
+      <ContactSection id="contato" />
       <Footer />
     </div>
   );

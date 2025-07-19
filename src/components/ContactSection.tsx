@@ -13,7 +13,11 @@ import {
   Send 
 } from "lucide-react";
 
-const ContactSection = () => {
+type ContactSectionProps = {
+  id?: string;
+};
+
+const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -35,15 +39,9 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const data = {
-      name: formData.name,
-      email: formData.email,
-      company: formData.company,
-      phone: formData.phone,
-      message: formData.message
-    };
+    const data = { ...formData };
 
-    console.log('Dados enviados para o backend:', data); // Verificar os dados antes de enviar
+    console.log('Dados enviados para o backend:', data);
 
     try {
       const res = await fetch("http://localhost:3001/SOLICITACOES_ORCAMENTO", {
@@ -54,15 +52,13 @@ const ContactSection = () => {
         body: JSON.stringify(data),
       });
 
-      // Log para verificar a resposta antes de tentar converter para JSON
       const responseText = await res.text();
-      console.log("Resposta do servidor como texto:", responseText); // Verifique o conteúdo retornado
+      console.log("Resposta do servidor como texto:", responseText);
 
       if (!res.ok) {
         throw new Error(responseText || "Erro inesperado no servidor");
       }
 
-      // Tenta converter a resposta para JSON, se for válido
       try {
         const result = JSON.parse(responseText);
         console.log('Resposta JSON do servidor:', result);
@@ -72,7 +68,7 @@ const ContactSection = () => {
           description: result.message || "Entraremos em contato em breve. Obrigado!",
         });
 
-        // Limpar os campos do formulário
+        // Limpar formulário após sucesso
         setFormData({
           name: "",
           email: "",
@@ -82,10 +78,10 @@ const ContactSection = () => {
         });
 
       } catch (jsonError) {
-        throw new Error(`A resposta do servidor não é um JSON válido. Erro: ${jsonError.message}`);
+        throw new Error(`Resposta do servidor não é JSON válido. Erro: ${jsonError.message}`);
       }
 
-    } catch (error) {
+    } catch (error: any) {
       console.error("Erro ao enviar mensagem:", error);
       toast({
         title: "Erro ao enviar mensagem.",
@@ -125,9 +121,9 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contato" className="py-20 bg-card/30">
+    <section id={id} className="py-20 bg-card/30">
       <div className="container mx-auto px-4">
-        {/* 400 */}
+        {/* Título e descrição */}
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Entre em Contato
@@ -138,7 +134,7 @@ const ContactSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
+          {/* Informações de contato */}
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-6">
@@ -170,7 +166,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Formulário de contato */}
           <Card className="border-border bg-card">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-foreground">
@@ -181,7 +177,7 @@ const ContactSection = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Nome *</Label>

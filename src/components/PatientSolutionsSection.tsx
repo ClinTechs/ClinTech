@@ -10,7 +10,11 @@ import {
   ArrowRight 
 } from "lucide-react";
 
-const PatientSolutionsSection = () => {
+type PatientSolutionsSectionProps = {
+  id?: string;
+};
+
+const PatientSolutionsSection: React.FC<PatientSolutionsSectionProps> = ({ id }) => {
   const patientFeatures = [
     {
       icon: MessageSquare,
@@ -48,7 +52,7 @@ const PatientSolutionsSection = () => {
   ];
 
   return (
-    <section id="pacientes" className="py-20 bg-gradient-hero">
+    <section id={id} className="py-20 bg-gradient-hero">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-4 mb-16">
           <Badge variant="secondary" className="w-fit mx-auto">

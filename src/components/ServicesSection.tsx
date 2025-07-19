@@ -10,7 +10,11 @@ import {
   ArrowRight 
 } from "lucide-react";
 
-const ServicesSection = () => {
+type ServicesSectionProps = {
+  id?: string;
+};
+
+const ServicesSection: React.FC<ServicesSectionProps> = ({ id }) => {
   const services = [
     {
       icon: Pill,
@@ -51,7 +55,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="servicos" className="py-20 bg-background">
+    <section id={id} className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
@@ -103,9 +107,9 @@ const ServicesSection = () => {
               Entre em contato e receba uma consultoria gratuita.
             </p>
             <a href="#contato">
-            <Button variant="hero" size="lg">
-              Solicitar Consultoria Gratuita
-            </Button>
+              <Button variant="hero" size="lg">
+                Solicitar Consultoria Gratuita
+              </Button>
             </a>
           </div>
         </div>

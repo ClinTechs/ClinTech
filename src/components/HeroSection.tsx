@@ -3,9 +3,13 @@ import { ArrowRight, Cog, Zap, Shield } from "lucide-react";
 import heroImage from "@/assets/hero-healthcare.jpg";
 import { Link } from 'react-router-dom';
 
-const HeroSection = () => {
+type HeroSectionProps = {
+  id?: string;
+};
+
+const HeroSection: React.FC<HeroSectionProps> = ({ id }) => {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id={id} className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-hero"></div>
       <div 
