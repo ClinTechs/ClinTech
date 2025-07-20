@@ -7,6 +7,14 @@ const Header = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  // Função para rolar até a seção
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
@@ -23,34 +31,49 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-             <a href="#inicio" className="text-foreground hover:text-primary transition-colors">
+            <a
+              onClick={() => scrollToSection('inicio')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+            >
               Início
             </a>
-            <a href="#sobre" className="text-foreground hover:text-primary transition-colors">
+            <a
+              onClick={() => scrollToSection('sobre')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+            >
               Sobre
             </a>
-            <a href="#servicos" className="text-foreground hover:text-primary transition-colors">
+            <a
+              onClick={() => scrollToSection('servicos')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+            >
               Serviços
             </a>
-            <a href="#pacientes" className="text-foreground hover:text-primary transition-colors">
+            <a
+              onClick={() => scrollToSection('pacientes')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+            >
               Para Pacientes
             </a>
-            <a href="#assinatura" className="text-foreground hover:text-primary transition-colors">
+            <a
+              onClick={() => scrollToSection('assinatura')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+            >
               Planos
             </a>
-            <a href="#contato" className="text-foreground hover:text-primary transition-colors">
+            <a
+              onClick={() => scrollToSection('contato')}
+              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+            >
               Contato
             </a>
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            {/* Alteração feita aqui */}
-            <a href="#contato">
-              <Button variant="hero" size="lg">
-                Solicitar Orçamento
-              </Button>
-            </a>
+            <Button variant="hero" size="lg" onClick={() => scrollToSection('contato')}>
+              Solicitar Orçamento
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -67,52 +90,49 @@ const Header = () => {
           <nav className="md:hidden mt-4 py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
               <a
-                href="#inicio"
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => { scrollToSection('inicio'); setIsMenuOpen(false); }}
+                className="text-foreground hover:text-primary transition-colors cursor-pointer"
               >
                 Início
               </a>
               <a
-                href="#sobre"
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => { scrollToSection('sobre'); setIsMenuOpen(false); }}
+                className="text-foreground hover:text-primary transition-colors cursor-pointer"
               >
                 Sobre
               </a>
               <a
-                href="#servicos"
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => { scrollToSection('servicos'); setIsMenuOpen(false); }}
+                className="text-foreground hover:text-primary transition-colors cursor-pointer"
               >
                 Serviços
               </a>
               <a
-                href="#pacientes"
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => { scrollToSection('pacientes'); setIsMenuOpen(false); }}
+                className="text-foreground hover:text-primary transition-colors cursor-pointer"
               >
                 Para Pacientes
               </a>
               <a
-                href="#assinatura"
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => { scrollToSection('assinatura'); setIsMenuOpen(false); }}
+                className="text-foreground hover:text-primary transition-colors cursor-pointer"
               >
                 Planos
               </a>
               <a
-                href="#contato"
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => { scrollToSection('contato'); setIsMenuOpen(false); }}
+                className="text-foreground hover:text-primary transition-colors cursor-pointer"
               >
                 Contato
               </a>
-              <a href="#contato">
-                <Button variant="hero" size="lg" className="w-full">
-                  Solicitar Orçamento
-                </Button>
-              </a>
+              <Button
+                variant="hero"
+                size="lg"
+                onClick={() => { scrollToSection('contato'); setIsMenuOpen(false); }}
+                className="w-full"
+              >
+                Solicitar Orçamento
+              </Button>
             </div>
           </nav>
         )}
