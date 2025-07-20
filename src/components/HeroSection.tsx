@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Cog, Zap, Shield } from "lucide-react";
+import { ArrowRight, Cog, Zap, Shield, Link } from "lucide-react";
 import heroImage from "@/assets/hero-healthcare.jpg";
 
 const HeroSection = () => {
@@ -53,9 +53,11 @@ const HeroSection = () => {
                 Começar Projeto
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
+              <Link to= "/Portfolio">
               <Button variant="outline" size="lg">
                 Ver Portfólio
               </Button>
+              </Link>
             </div>
           </div>
 
