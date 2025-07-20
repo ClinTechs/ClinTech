@@ -13,11 +13,7 @@ import {
   Send 
 } from "lucide-react";
 
-type ContactSectionProps = {
-  id?: string;
-};
-
-const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
+const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -121,7 +117,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
   ];
 
   return (
-    <section id={id} className="py-20 bg-card/30">
+     <section id="contato" className="py-20 bg-card/30">
       <div className="container mx-auto px-4">
         {/* Título e descrição */}
         <div className="text-center space-y-4 mb-16">

@@ -1,15 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Cog, Zap, Shield } from "lucide-react";
 import heroImage from "@/assets/hero-healthcare.jpg";
-import { Link } from 'react-router-dom';
 
-type HeroSectionProps = {
-  id?: string;
-};
-
-const HeroSection: React.FC<HeroSectionProps> = ({ id }) => {
+const HeroSection = () => {
   return (
-    <section id={id} className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-hero"></div>
       <div 
@@ -54,17 +49,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ id }) => {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contato">
               <Button variant="hero" size="lg" className="group">
                 Começar Projeto
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              </a>
-              <Link to="/Portfolio">
-            <Button variant="outline" size="lg">
-              Ver Portfólio
-            </Button>
-            </Link>
+              <Button variant="outline" size="lg">
+                Ver Portfólio
+              </Button>
             </div>
           </div>
 

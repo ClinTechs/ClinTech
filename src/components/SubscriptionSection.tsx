@@ -17,11 +17,7 @@ import {
   BarChart3
 } from "lucide-react";
 
-type SubscriptionSectionProps = {
-  id?: string;
-};
-
-const SubscriptionSection: React.FC<SubscriptionSectionProps> = ({ id }) => {
+const SubscriptionSection = () => {
   const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [selectedPlan, setSelectedPlan] = useState("premium");
@@ -117,6 +113,7 @@ const SubscriptionSection: React.FC<SubscriptionSectionProps> = ({ id }) => {
 
   const handleSubscribe = async (planId: string) => {
     setIsLoading(true);
+    
     // Simular processo de assinatura
     await new Promise(resolve => setTimeout(resolve, 2000));
     
@@ -151,7 +148,7 @@ const SubscriptionSection: React.FC<SubscriptionSectionProps> = ({ id }) => {
   };
 
   return (
-    <section id={id} className="py-20 bg-background">
+    <section id="assinatura" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center space-y-4 mb-16">

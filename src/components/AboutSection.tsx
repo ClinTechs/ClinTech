@@ -1,11 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Users, Award, Lightbulb } from "lucide-react";
 
-interface AboutSectionProps {
-  id?: string;
-}
-
-const AboutSection = ({ id = "sobre" }: AboutSectionProps) => {
+const AboutSection = () => {
   const achievements = [
     "Mais de 500 projetos concluídos",
     "15 anos de experiência no mercado",
@@ -14,10 +10,10 @@ const AboutSection = ({ id = "sobre" }: AboutSectionProps) => {
   ];
 
   return (
-    <section id={id} className="py-20 bg-card/30">
+    <section id="sobre" className="py-20 bg-card/30">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Conteúdo texto */}
+          {/* Content */}
           <div className="space-y-8">
             <div className="space-y-4">
               <Badge variant="secondary" className="w-fit">
@@ -37,7 +33,7 @@ const AboutSection = ({ id = "sobre" }: AboutSectionProps) => {
               </p>
             </div>
 
-            {/* Conquistas */}
+            {/* Achievements */}
             <div className="space-y-4">
               {achievements.map((achievement, index) => (
                 <div key={index} className="flex items-center space-x-3">
@@ -48,7 +44,7 @@ const AboutSection = ({ id = "sobre" }: AboutSectionProps) => {
             </div>
           </div>
 
-          {/* Cards de estatísticas */}
+          {/* Stats Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="bg-card p-6 rounded-xl border border-border hover:shadow-card transition-all duration-300">
               <div className="flex items-center space-x-4">
