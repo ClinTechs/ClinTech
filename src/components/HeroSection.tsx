@@ -1,8 +1,16 @@
+import { useNavigate } from "react-router-dom"; // Importe o hook useNavigate
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Cog, Zap, Shield, Link } from "lucide-react";
 import heroImage from "@/assets/hero-healthcare.jpg";
 
 const HeroSection = () => {
+  const navigate = useNavigate(); // Inicialize o hook useNavigate
+
+  // Função para navegar para o portfólio
+  const goToPortfolio = () => {
+    navigate("/portfolio");
+  };
+
   return (
     <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
@@ -54,10 +62,9 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" onClick={goToPortfolio}> {/* Altere para usar a função de navegação */}
                 Ver Portfólio
               </Button>
-              
             </div>
           </div>
 
