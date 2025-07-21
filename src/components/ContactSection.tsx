@@ -40,7 +40,7 @@ const ContactSection = () => {
     console.log('Dados enviados para o backend:', data);
 
     try {
-      const res = await fetch("http://localhost:3001/SOLICITACOES_ORCAMENTO", {
+      const res = await fetch("https://ctb-theta.vercel.app/server", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
