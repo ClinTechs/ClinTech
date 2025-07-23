@@ -40,7 +40,7 @@ const ContactSection = () => {
     console.log('Dados enviados para o backend:', data);
 
     try {
-      const res = await fetch("https://e87672e0600b.ngrok-free.app/api/SOLICITACOES_ORCAMENTO", {
+      const res = await fetch("https://ebea4a15800e.ngrok-free.app/api/SOLICITACOES_ORCAMENTO", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
